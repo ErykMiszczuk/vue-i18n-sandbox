@@ -1,12 +1,29 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <header>
+      <nav id="nav">
+        <router-link to="/">Home</router-link>
+        <router-link to="/about">About</router-link>
+      </nav>
+      <div class="header__globalLanguageChanger">
+        <button @click="changeLanguage('en')">EN</button>
+        <button @click="changeLanguage('de')">DE</button>
+        <button @click="changeLanguage('pl')">PL</button>
+      </div>
+    </header>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    changeLanguage(lang) {
+      this.$i18n.i18next.changeLanguage(lang);
+    }
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
